@@ -1,9 +1,31 @@
 {
-  "AWSEBDockerrunVersion": "1",
-  "Ports": [
+  "AWSEBDockerrunVersion": 2,
+  "containerDefinitions": [
     {
-      "ContainerPort": 3000,
-      "HostPort": 80
+      "name": "app-payload",
+      "image": "app-payload:latest",
+      "memory": 512,
+      "essential": true,
+      "portMappings": [
+        {
+          "hostPort": 80,
+          "containerPort": 3000
+        }
+      ],
+      "environment": [
+        {
+          "name": "NODE_ENV",
+          "value": "production"
+        },
+        {
+          "name": "HOSTNAME",
+          "value": "0.0.0.0"
+        },
+        {
+          "name": "PORT",
+          "value": "3000"
+        }
+      ]
     }
   ]
 }

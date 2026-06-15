@@ -32,6 +32,33 @@ jobs:
         run: |
           zip -r app.zip Dockerfile Dockerrun.aws.json public .next/standalone .next/static
 
+      - name: Wait for EB Environment to be Ready
+        run: |
+          for i in {1..30}; do
+            STATUS=$(aws elasticbeanstalk describe-environments \
+              --application-name little-nest \
+              --environment-names Little-nest-env \
+              --region ap-south-1 \
+              --query 'Environments[0].Status' \
+              --output text)
+            
+            echo "Environment status: $STATUS"
+            
+            if [ "$STATUS" = "Ready" ]; then
+              echo "Environment is ready for deployment"
+              exit 0
+            fi
+            
+            echo "Waiting for environment to be ready... (attempt $i/30)"
+            sleep 10
+          done
+          
+          echo "Environment failed to become ready within 5 minutes"
+          exit 1
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+
       - name: Deploy to EB
         uses: einaregilsson/beanstalk-deploy@v21
         with:
@@ -42,3 +69,4 @@ jobs:
           region: ap-south-1
           version_label: ${{ github.sha }}
           deployment_package: app.zip
+          wait_for_environment_recovery: true

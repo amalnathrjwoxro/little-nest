@@ -30,7 +30,10 @@ jobs:
 
       - name: Zip
         run: |
-          zip -r app.zip Dockerfile Dockerrun.aws.json public .next/standalone .next/static
+          zip -r app.zip . \
+            --exclude "*.git*" \
+            --exclude "node_modules/*" \
+            --exclude ".next/cache/*"
 
       - name: Wait for EB Environment to be Ready
         run: |

@@ -1,1 +1,1 @@
-web: node server.mjs
+web: node .next/standalone/server.js

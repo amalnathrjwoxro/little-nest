@@ -31,14 +31,11 @@ jobs:
       - name: Zip
         run: |
           zip -r app.zip \
-            .next \
+            .next/standalone \
+            .next/static \
             public \
-            package.json \
-            package-lock.json \
             Procfile \
-            server.mjs \
-            next.config.mjs \
-            --exclude ".next/cache/*"
+            --exclude ".next/standalone/.env"
 
       - name: Wait for EB Environment to be Ready
         run: |
@@ -49,25 +46,14 @@ jobs:
               --region eu-north-1 \
               --query 'Environments[0].Status' \
               --output text)
-            HEALTH=$(aws elasticbeanstalk describe-environments \
-              --application-name little-nest \
-              --environment-names Little-nest-env \
-              --region eu-north-1 \
-              --query 'Environments[0].Health' \
-              --output text)
-            
-            echo "Environment status: $STATUS, health: $HEALTH"
-            
+            echo "Environment status: $STATUS"
             if [ "$STATUS" = "Ready" ]; then
               echo "Environment is ready for deployment"
               exit 0
             fi
-            
-            echo "Waiting for environment to be ready... (attempt $i/60)"
+            echo "Waiting... (attempt $i/60)"
             sleep 15
           done
-          
-          echo "Environment failed to become ready within 15 minutes"
           exit 1
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}

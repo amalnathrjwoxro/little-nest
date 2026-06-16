@@ -30,9 +30,14 @@ jobs:
 
       - name: Zip
         run: |
-          zip -r app.zip . \
-            --exclude "*.git*" \
-            --exclude "node_modules/*" \
+          zip -r app.zip \
+            .next \
+            public \
+            package.json \
+            package-lock.json \
+            Procfile \
+            .ebextensions \
+            next.config.mjs \
             --exclude ".next/cache/*"
 
       - name: Wait for EB Environment to be Ready

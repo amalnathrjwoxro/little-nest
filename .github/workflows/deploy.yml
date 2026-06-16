@@ -28,12 +28,15 @@ jobs:
           S3_BUCKET: ${{ secrets.S3_BUCKET }}
           S3_REGION: ${{ secrets.S3_REGION }}
 
+      - name: Copy static files for standalone
+        run: |
+          cp -r .next/static .next/standalone/.next/static
+          cp -r public .next/standalone/public
+
       - name: Zip
         run: |
           zip -r app.zip \
             .next/standalone \
-            .next/static \
-            public \
             Procfile \
             --exclude ".next/standalone/.env"
 

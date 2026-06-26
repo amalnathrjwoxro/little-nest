@@ -11,6 +11,8 @@ import { Media } from './collections/Media'
 import { ContactForm } from './collections/Contactform'
 import { Blogs } from './collections/Blogs'
 import { Products } from './collections/Products'
+import { Pages } from './collections/Pages'
+import { Header } from './globals/Header'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -23,7 +25,8 @@ export default buildConfig({
       baseDir: path.resolve(dirname),
     },
   },
-  collections: [Users, Media, ContactForm, Blogs, Products],
+  collections: [Users, Media, ContactForm, Blogs, Products, Pages],
+  globals: [Header],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || '',
   typescript: {

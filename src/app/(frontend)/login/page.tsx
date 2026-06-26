@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useState } from "react";
 
 export default function LoginPage() {
@@ -92,9 +93,9 @@ export default function LoginPage() {
 
         <p className="text-center text-[12px] text-[#d4a0b0] mt-5">
           New here?{" "}
-          <a href="/register" className="text-[#e8829a] font-semibold">
+          <Link href="/register" className="text-[#e8829a] font-semibold">
             Create an account
-          </a>
+          </Link>
         </p>
       </div>
     </div>

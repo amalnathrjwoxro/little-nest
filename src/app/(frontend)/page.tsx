@@ -1,4 +1,4 @@
-"use client";
+import Link from "next/link";
 import ContactForm from "./components/ContactForm";
 import Navbar from "./components/Navbar";
 
@@ -40,12 +40,12 @@ export default function Home() {
           </p>
 
           <div className="flex items-center justify-center gap-3 flex-wrap animate-[fadeInUp_0.9s_ease-out]">
-            <a href="/products" className="bg-[#f9869f] hover:bg-[#f06b88] text-white font-semibold rounded-full px-7 py-3 text-[14px] transition-all active:scale-95 hover:scale-105">
+            <Link href="/products" className="bg-[#f9869f] hover:bg-[#f06b88] text-white font-semibold rounded-full px-7 py-3 text-[14px] transition-all active:scale-95 hover:scale-105">
               Shop now
-            </a>
-            <a href="/products" className="bg-white border border-[#f5c6d4] text-[#e8829a] font-semibold rounded-full px-7 py-3 text-[14px] hover:bg-[#fde8ed] transition-all hover:scale-105">
+            </Link>
+            <Link href="/products" className="bg-white border border-[#f5c6d4] text-[#e8829a] font-semibold rounded-full px-7 py-3 text-[14px] hover:bg-[#fde8ed] transition-all hover:scale-105">
               View collections
-            </a>
+            </Link>
           </div>
 
           {/* cute scrolling stars */}

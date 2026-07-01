@@ -37,6 +37,7 @@ jobs:
         run: |
           zip -r app.zip \
             .next/standalone \
+            .platform \
             .ebextensions \
             Procfile \
             --exclude ".next/standalone/.env"

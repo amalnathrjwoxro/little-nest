@@ -27,7 +27,7 @@ export const Media: CollectionConfig = {
       },
     ],
     adminThumbnail: 'thumbnail',
-    mimeTypes: ['image/png', 'image/jpeg', 'image/webp'],
+    mimeTypes: ['image/png', 'image/jpeg', 'image/webp', 'video/mp4', 'video/quicktime'],
   },
 
   fields: [

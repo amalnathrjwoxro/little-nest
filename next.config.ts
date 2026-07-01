@@ -9,6 +9,9 @@ const dirname = path.dirname(__filename)
 
 const nextConfig: NextConfig = {
   output: 'standalone',
+    outputFileTracingIncludes: {
+    '/**': ['./node_modules/ffmpeg-static/**'],
+  },
    allowedDevOrigins: ['192.168.1.72'],
   images: {
     localPatterns: [

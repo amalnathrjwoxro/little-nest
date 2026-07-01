@@ -82,7 +82,7 @@ export default function ContactForm() {
                   })
                 }
                 required
-                className="w-full px-4 py-[11px] rounded-full border border-[#f5c6d4] bg-[#fffafc] text-[13.5px] text-[#5a3a4a] placeholder-[#d4a8b4] outline-none focus:border-[#e8829a] focus:ring-2 focus:ring-[#fde0e7] transition-all"
+                className="w-full px-4 py-2.75 rounded-full border border-[#f5c6d4] bg-[#fffafc] text-[13.5px] text-[#5a3a4a] placeholder-[#d4a8b4] outline-none focus:border-[#e8829a] focus:ring-2 focus:ring-[#fde0e7] transition-all"
               />
             </div>
 
@@ -103,7 +103,7 @@ export default function ContactForm() {
                   })
                 }
                 required
-                className="w-full px-4 py-[11px] rounded-full border border-[#f5c6d4] bg-[#fffafc] text-[13.5px] text-[#5a3a4a] placeholder-[#d4a8b4] outline-none focus:border-[#e8829a] focus:ring-2 focus:ring-[#fde0e7] transition-all"
+                className="w-full px-4 py-2.75 rounded-full border border-[#f5c6d4] bg-[#fffafc] text-[13.5px] text-[#5a3a4a] placeholder-[#d4a8b4] outline-none focus:border-[#e8829a] focus:ring-2 focus:ring-[#fde0e7] transition-all"
               />
             </div>
 
@@ -132,7 +132,7 @@ export default function ContactForm() {
             <button
               type="submit"
               disabled={loading}
-              className={`w-full py-[13px] font-semibold rounded-full text-[13.5px] tracking-wide transition-all active:scale-[0.98] ${
+              className={`w-full py-3.25 font-semibold rounded-full text-[13.5px] tracking-wide transition-all active:scale-[0.98] ${
                 sent
                   ? "bg-[#6dbf8a] text-white"
                   : "bg-[#f9869f] hover:bg-[#f06b88] text-white"

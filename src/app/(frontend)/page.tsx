@@ -1,6 +1,8 @@
 import Link from "next/link";
 import ContactForm from "./components/ContactForm";
 import Navbar from "./components/Navbar";
+import MediaShowcase from "./components/MediaShowcase";
+
 
 export default function Home() {
   return (
@@ -114,7 +116,7 @@ export default function Home() {
       <div className="bg-[#f9869f] py-3 overflow-hidden">
         <div className="flex animate-[marquee_18s_linear_infinite] whitespace-nowrap">
           {[...Array(3)].map((_, i) => (
-            <span key={i} className="text-white text-[12.5px] font-semibold tracking-widest uppercase mx-8 flex-shrink-0">
+            <span key={i} className="text-white text-[12.5px] font-semibold tracking-widest uppercase mx-8 shrink-0">
               Safe for babies &nbsp;·&nbsp; Soft materials &nbsp;·&nbsp; Free returns &nbsp;·&nbsp; Trusted by parents &nbsp;·&nbsp; New arrivals weekly &nbsp;·&nbsp; Certified products &nbsp;·&nbsp;
             </span>
           ))}
@@ -147,6 +149,8 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <MediaShowcase />
 
       {/* ── CONTACT ── */}
       <div id="contact">
